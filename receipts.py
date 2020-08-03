@@ -83,3 +83,4 @@ def print_the_receipt(the_last_menu, the_current_order, tax_rate_final):
 
 for x in range(len(orders)):
     print_the_receipt(menu, orders[x], order_tax)
+    print("")
