@@ -26,19 +26,21 @@ menu['Brunch']['Three Egg Breakfast'] = {
     'With Bacon': 9.99,
 }
 
-order_1 =['Egg Benedict', "Coffee", 'Biscuit and Gravy', 'Coffee', 'Steak and Eggs', 'Soft Drink']
-order_2 = ['Steak Salad', 'Soft Drink', 'Soup of the Day',]
-order_total = 0
+orders = [
+    ['Egg Benedict', "Coffee", 'Biscuit and Gravy', 'Coffee', 'Steak and Eggs', 'Soft Drink'],
+    ['Steak Salad', 'Soft Drink', 'Soup of the Day',]
+]
+#order_total = 0
 order_tax = 0.07
 
-def print_it_all(the_menu, the_order):
+def print_the_order(the_menu, the_order):
     order_total = 0
     for items in range(len(the_order)):
         for sections in the_menu:
+    
             if the_order[items] in the_menu[sections]:
                 order_total += print_menu(the_menu, the_order[items], sections)
-            #else:
-                #print("Not an item")
+        
     return order_total
 
 def print_menu(menu_dict, the_order_item, menu_sect):
@@ -73,7 +75,11 @@ def print_tips(order_total, tax_rate):
         x -= 5
 
 
+def print_the_receipt(the_last_menu, the_current_order, tax_rate_final):
 
-order_total = print_it_all(menu, order_1)
-#print(order_total)
-print_tips(order_total, order_tax)
+    order_total = print_the_order(the_last_menu, the_current_order)
+    #print(order_total)
+    print_tips(order_total, tax_rate_final)
+
+for x in range(len(orders)):
+    print_the_receipt(menu, orders[x], order_tax)
